@@ -1,0 +1,10 @@
+.average-rating .fa-star {
+    color: #ddd;
+    font-size: 20px;
+    float: left;
+    margin-right: 10px;
+}
+
+.average-rating .checked {
+    color: orange;
+}

@@ -1,0 +1,11 @@
+{% if is_address %}
+{% for addresses in address %}
+{{addresses.nationality.name}} - {{addresses.city}} <a href="{% url 'products:update_shipping_address' addresses.id %}">update shipping address</a>
+<br>
+<hr>
+{% endfor %}
+{% else %} 
+no address found create one
+{% endif %}
+<br>
+<a href="{% url 'products:create_shipping_address' %}">Add a shipping address</a>

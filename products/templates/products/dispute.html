@@ -1,0 +1,104 @@
+{% extends "products/index.html" %}
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="reason"></textarea>
+    <br>
+    <button type="submit">submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Dispute</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+          
+            
+            <div class="col-md-8">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+
+                        
+
+                        <form class="checkout" method="POST">
+                            {% csrf_token %}
+
+                            <div id="customer_details" class="col2-set">
+                                <div class="col-2">
+                                    <div class="woocommerce-billing-fields">
+                                        <h3>Reason for your dispute</h3>
+                                        <p id="billing_country_field" class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
+                                            <label class="" for="billing_country">Reason <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            <textarea id="billing_country" class="input-text" name="reason"></textarea>
+                                        </p>
+                                       
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                           
+
+                            <div id="order_review" style="position: relative;">
+                               
+
+
+                                <div id="payment">
+                                   
+                                    <div class="form-row place-order">
+
+                                        <button type="submit"  id="place_order" class="button alt">Create</button>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>                       
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

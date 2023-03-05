@@ -1,0 +1,160 @@
+{% extends "products/index.html" %}
+{% block content %}
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shopping Cart</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="single-sidebar">
+                    <h2 class="sidebar-title">YOUR ORDER</h2>
+                    <table class="shop_table">
+                        <thead>
+                            <tr>
+                                <th class="product-name">Product</th>
+                                <th class="product-total">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in get_orders.items.all %}
+                            <tr class="cart_item">
+                                <td class="product-name">
+                                    {{item.product.name}} <strong class="product-quantity">× {{item.quantity}}</strong> </td>
+                                <td class="product-total">
+                                    <span class="amount">£{{item.get_item_main_amount}}</span> </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+
+                            <tr class="cart-subtotal">
+                                <th>Cart Subtotal</th>
+                                <td><span class="amount">£{{get_orders.get_total_amount}}</span>
+                                </td>
+                            </tr>
+
+
+                            <tr class="order-total">
+                                <th>Order Total</th>
+                                <td><strong><span class="amount">£{{get_orders.get_total_amount}}</span></strong> </td>
+                            </tr>
+
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+
+                        <div class="woocommerce-info">Shipping Address: <strong>{% if is_shipping_address %} {% for sa in shipping_address %} {{sa.apt_suit}}, {{sa.city}}, {{sa.nationality.name }}, {{sa.zipcode}} {% endfor %} {% else %}create or set a default address{% endif %}</strong> <a class="showcoupon"  href="{% url 'products:shipping_address' %}"  >create or change to a default address</a>
+                        </div>
+
+                        <form class="checkout" method="POST">
+                            {% csrf_token %}
+
+                            <div id="customer_details" class="col2-set">
+                                <div class="col-2">
+                                    <div class="woocommerce-billing-fields">
+                                        <h3>Billing Details</h3>
+                                        <p id="billing_country_field" class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
+                                            <label class="" for="billing_country">Country <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.nationality}}
+                                        </p>
+
+                                        <p id="billing_first_name_field" class="form-row form-row-first validate-required">
+                                            <label class="" for="billing_first_name">First Name <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.first_name}}
+                                        </p>
+
+                                        <p id="billing_last_name_field" class="form-row form-row-last validate-required">
+                                            <label class="" for="billing_last_name">Last Name <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.last_name}}
+                                        </p>
+                                        <div class="clear"></div>
+
+                                        <p id="billing_company_field" class="form-row form-row-wide">
+                                            <label class="" for="billing_company">Company Name</label>
+                                            {{form.company}}
+                                        </p>
+
+                                        <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
+                                            <label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.apt_suit}}
+                                        </p>
+
+                                        <p id="billing_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required">
+                                            <label class="" for="billing_city">Town / City <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                           
+                                            {{form.city}}
+                                            
+                                        </p>
+
+                                       
+                                        <p id="billing_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode">
+                                            <label class="" for="billing_postcode">Postcode <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.zipcode}}
+                                        </p>
+
+                                        <div class="clear"></div>
+
+                                        <p id="billing_email_field" class="form-row form-row-first validate-required validate-email">
+                                            <label class="" for="billing_email">Email Address <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.email}}
+                                        </p>
+
+                                        <div class="clear"></div>
+
+
+                                      
+                                    </div>
+                                </div>
+
+                            </div>
+
+                           
+
+                            <div id="order_review" style="position: relative;">
+                               
+
+
+                                <div id="payment">
+                                    {{form.payment_types}}
+
+                                    <div class="form-row place-order">
+
+                                        <button type="submit"  id="place_order" class="button alt">Place order</button>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>                       
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

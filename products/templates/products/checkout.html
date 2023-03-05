@@ -1,0 +1,12 @@
+{% for message in messages %}
+{{message}}
+{% endfor %}
+<h1>payment</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <label for="shipping_address">Shipping Address:</label>
+    <input type="text" id="shipping_address" readonly  value="{% if is_shipping_address %} {% for sa in shipping_address %} {{sa.nationality.name}}-{{sa.city}}-{{sa.apt_suit|truncatechars:4 }} {% endfor %} {% else %}create or set a default address{% endif %}">  <a href="{% url 'products:shipping_address' %}">  create or change to a default address</a>
+    <br>
+ <button type="submit">submit</button>
+</form>

@@ -1,0 +1,759 @@
+<style>
+    body { 
+/* CSS Variables that may have been missed get put on body */ 
+    --sn-hue-gray0:  #ffffff;  
+    --sn-hue-gray50:  #f6f8fa;  
+    --sn-hue-gray100:  #ebeef1;  
+    --sn-hue-gray150:  #d5dbe1;  
+    --sn-hue-gray200:  #c0c8d2;  
+    --sn-hue-gray300:  #a3acba;  
+    --sn-hue-gray400:  #87909f;  
+    --sn-hue-gray500:  #687385;  
+    --sn-hue-gray600:  #545969;  
+    --sn-hue-gray700:  #414552;  
+    --sn-hue-gray800:  #30313d;  
+    --sn-hue-gray900:  #1a1b25;  
+    --sn-hue-gray950:  #10111a;  
+    --sn-hue-blue50:  #ddfffe;  
+    --sn-hue-blue100:  #cff5f6;  
+    --sn-hue-blue200:  #75d5e8;  
+    --sn-hue-blue300:  #06b9ef;  
+    --sn-hue-blue400:  #0096eb;  
+    --sn-hue-blue500:  #0570de;  
+    --sn-hue-blue600:  #0055bc;  
+    --sn-hue-blue700:  #04438c;  
+    --sn-hue-blue800:  #003262;  
+    --sn-hue-blue900:  #011c3a;  
+    --sn-hue-green50:  #ecfed7;  
+    --sn-hue-green100:  #d7f7c2;  
+    --sn-hue-green200:  #76df47;  
+    --sn-hue-green300:  #48c404;  
+    --sn-hue-green400:  #3fa40d;  
+    --sn-hue-green500:  #228403;  
+    --sn-hue-green600:  #006908;  
+    --sn-hue-green700:  #0b5019;  
+    --sn-hue-green800:  #043b15;  
+    --sn-hue-green900:  #02220d;  
+    --sn-hue-orange50:  #fef9da;  
+    --sn-hue-orange100:  #fcedb9;  
+    --sn-hue-orange200:  #fcbd3a;  
+    --sn-hue-orange300:  #ff8f0e;  
+    --sn-hue-orange400:  #ed6704;  
+    --sn-hue-orange500:  #c84801;  
+    --sn-hue-orange600:  #a82c00;  
+    --sn-hue-orange700:  #842106;  
+    --sn-hue-orange800:  #5f1a05;  
+    --sn-hue-orange900:  #331302;  
+    --sn-hue-red50:  #fff5fa;  
+    --sn-hue-red100:  #ffe7f2;  
+    --sn-hue-red200:  #ffb1cd;  
+    --sn-hue-red300:  #fe87a1;  
+    --sn-hue-red400:  #fc526a;  
+    --sn-hue-red500:  #df1b41;  
+    --sn-hue-red600:  #b3093c;  
+    --sn-hue-red700:  #890d37;  
+    --sn-hue-red800:  #68052b;  
+    --sn-hue-red900:  #3e021a;  
+    --sn-hue-purple50:  #f9f7ff;  
+    --sn-hue-purple100:  #f2ebff;  
+    --sn-hue-purple200:  #d1befe;  
+    --sn-hue-purple300:  #b49cfc;  
+    --sn-hue-purple400:  #8d7ffa;  
+    --sn-hue-purple500:  #625afa;  
+    --sn-hue-purple600:  #513dd9;  
+    --sn-hue-purple700:  #3f32a1;  
+    --sn-hue-purple800:  #302476;  
+    --sn-hue-purple900:  #14134e;  
+    --sn-color-neutral0:  var(--sn-hue-gray0);  
+    --sn-color-neutral50:  var(--sn-hue-gray50);  
+    --sn-color-neutral200:  var(--sn-hue-gray200);  
+    --sn-color-neutral300:  var(--sn-hue-gray300);  
+    --sn-color-neutral400:  var(--sn-hue-gray400);  
+    --sn-color-neutral500:  var(--sn-hue-gray500);  
+    --sn-color-neutral600:  var(--sn-hue-gray600);  
+    --sn-color-neutral700:  var(--sn-hue-gray700);  
+    --sn-color-brand400:  var(--sn-hue-purple400);  
+    --sn-color-brand500:  var(--sn-hue-purple500);  
+    --sn-color-info400:  var(--sn-hue-blue400);  
+    --sn-color-info500:  var(--sn-hue-blue500);  
+    --sn-color-success400:  var(--sn-hue-green400);  
+    --sn-color-success500:  var(--sn-hue-green500);  
+    --sn-color-attention400:  var(--sn-hue-orange400);  
+    --sn-color-attention500:  var(--sn-hue-orange500);  
+    --sn-color-critical400:  var(--sn-hue-red400);  
+    --sn-color-critical500:  var(--sn-hue-red500);  
+    --sn-iconColor-primary:  var(--sn-color-neutral600);  
+    --sn-textColor-primary:  var(--sn-color-neutral700);  
+    --sn-space-1:  1px;  
+    --sn-space-25:  2px;  
+    --sn-space-50:  4px;  
+    --sn-space-75:  6px;  
+    --sn-space-100:  8px;  
+    --sn-space-150:  12px;  
+    --sn-space-200:  16px;  
+    --sn-space-250:  20px;  
+    --sn-space-300:  24px;  
+    --sn-space-350:  28px;  
+    --sn-space-400:  32px;  
+    --sn-space-500:  40px;  
+    --sn-space-600:  48px;  
+    --sn-typeface-ui:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';  
+} 
+
+* { 
+    box-sizing:  border-box; 
+    word-wrap:  break-word;
+    margin: 0; 
+    padding: 0; 
+    border: 0;
+} 
+
+.Flex-flex { 
+    display: flex;
+} 
+
+.Flex-alignItems--center { 
+    align-items: center;
+} 
+
+.Flex-direction--column { 
+    flex-direction: column;
+} 
+
+.Flex-justifyContent--center { 
+    justify-content: center;
+} 
+
+.Box-root { 
+    box-sizing: border-box;
+} 
+
+.IntegrationBuilderDemo--view { 
+    background: var(--sail-color-blue-800); 
+    position: relative;
+} 
+
+.Box-divider--dark-bottom-1 { 
+    box-shadow: inset 0 -1px var(--sail-color-line-divider-dark);
+} 
+
+.IntegrationBuilderDemo { 
+    padding-bottom: 1px;
+} 
+
+.RightContainer { 
+    display: flex; 
+    flex-direction: column; 
+    position: sticky; 
+    top: 12px; 
+    height: calc(100vh - var(--fixed-header-height) - var(--collapsable-header-height) - 48px); 
+    width: 60%; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    background: var(--sail-color-blue-800);
+} 
+
+@media screen and (min-width: 1000px){ 
+  .RightContainer { 
+    top: 40px; 
+    height: calc(100vh - var(--fixed-header-height) - var(--collapsable-header-height) - 76px);
+  } 
+}     
+
+.IntegrationBuilder .Container { 
+    height: 100%; 
+    width: 100%;
+} 
+
+.Flex-direction--row { 
+    flex-direction: row;
+} 
+
+.Box-background--gray50 { 
+    background-color: var(--sail-color-gray-50);
+} 
+
+.IntegrationBuilder { 
+    width: 100%; 
+    background-color: #fff;
+} 
+
+article { 
+    display: block;
+} 
+
+.Content-article { 
+    min-width: var(--article-min-width);
+} 
+
+.Box-background--white { 
+    background-color: var(--sail-color-white);
+} 
+
+.Padding-bottom--32 { 
+    padding-bottom: var(--sail-spacing-32);
+} 
+
+.Padding-horizontal--48 { 
+    padding-right: var(--sail-spacing-48); 
+    padding-left: var(--sail-spacing-48);
+} 
+
+.Content-articleContainer { 
+    width: 100%; 
+    padding-top: 32px;
+} 
+
+.Shell .Content .Content-articleContainer { 
+    padding-top: 24px;
+} 
+
+.Shell .Content.Content-fullPage .Content-articleContainer { 
+    padding-left: 0; 
+    padding-right: 0; 
+    padding-top: 8px;
+} 
+
+.Content-container { 
+    width: 100%; 
+    max-width: var(--content-max-width);
+} 
+
+.Shell .Content.Content-fullPage .Content-container { 
+    max-width: 100%;
+} 
+
+.Content { 
+    height: 100%; 
+    overflow-y: auto; 
+    overflow-x: clip; 
+    display: flex; 
+    justify-content: center; 
+    position: relative; 
+    z-index: 1; 
+    padding-top: 0; 
+    flex: 1;
+} 
+
+@media (min-width: 1500px){ 
+  .Content { 
+    scroll-padding-top: 12px; 
+    padding-top: 12px;
+  } 
+}     
+
+:focus { 
+    outline: none;
+} 
+
+.Shell-loaded .Content { 
+    transition: width 100ms ease 50ms;
+} 
+
+.Shell.Sidebar--expanded .Content { 
+    width: calc(100vw - var(--sidebar-width));
+} 
+
+.Shell .Content.Content-fullPage { 
+    padding-right: 24px; 
+    padding-top: 12px;
+} 
+
+.Shell .Shell-container { 
+    overflow-y: hidden; 
+    height: 100%; 
+    flex: 1;
+} 
+
+.Shell { 
+    height: 100%;
+} 
+
+#root > div > div  { 
+    height: 100%;
+} 
+
+#root > div  { 
+    height: 100%;
+} 
+
+#​ .sn-1qk26zz { 
+    --sn-hue-gray0: #ffffff; 
+    --sn-hue-gray50: #f6f8fa; 
+    --sn-hue-gray100: #ebeef1; 
+    --sn-hue-gray150: #d5dbe1; 
+    --sn-hue-gray200: #c0c8d2; 
+    --sn-hue-gray300: #a3acba; 
+    --sn-hue-gray400: #87909f; 
+    --sn-hue-gray500: #687385; 
+    --sn-hue-gray600: #545969; 
+    --sn-hue-gray700: #414552; 
+    --sn-hue-gray800: #30313d; 
+    --sn-hue-gray900: #1a1b25; 
+    --sn-hue-gray950: #10111a; 
+    --sn-hue-blue50: #ddfffe; 
+    --sn-hue-blue100: #cff5f6; 
+    --sn-hue-blue200: #75d5e8; 
+    --sn-hue-blue300: #06b9ef; 
+    --sn-hue-blue400: #0096eb; 
+    --sn-hue-blue500: #0570de; 
+    --sn-hue-blue600: #0055bc; 
+    --sn-hue-blue700: #04438c; 
+    --sn-hue-blue800: #003262; 
+    --sn-hue-blue900: #011c3a; 
+    --sn-hue-green50: #ecfed7; 
+    --sn-hue-green100: #d7f7c2; 
+    --sn-hue-green200: #76df47; 
+    --sn-hue-green300: #48c404; 
+    --sn-hue-green400: #3fa40d; 
+    --sn-hue-green500: #228403; 
+    --sn-hue-green600: #006908; 
+    --sn-hue-green700: #0b5019; 
+    --sn-hue-green800: #043b15; 
+    --sn-hue-green900: #02220d; 
+    --sn-hue-orange50: #fef9da; 
+    --sn-hue-orange100: #fcedb9; 
+    --sn-hue-orange200: #fcbd3a; 
+    --sn-hue-orange300: #ff8f0e; 
+    --sn-hue-orange400: #ed6704; 
+    --sn-hue-orange500: #c84801; 
+    --sn-hue-orange600: #a82c00; 
+    --sn-hue-orange700: #842106; 
+    --sn-hue-orange800: #5f1a05; 
+    --sn-hue-orange900: #331302; 
+    --sn-hue-red50: #fff5fa; 
+    --sn-hue-red100: #ffe7f2; 
+    --sn-hue-red200: #ffb1cd; 
+    --sn-hue-red300: #fe87a1; 
+    --sn-hue-red400: #fc526a; 
+    --sn-hue-red500: #df1b41; 
+    --sn-hue-red600: #b3093c; 
+    --sn-hue-red700: #890d37; 
+    --sn-hue-red800: #68052b; 
+    --sn-hue-red900: #3e021a; 
+    --sn-hue-purple50: #f9f7ff; 
+    --sn-hue-purple100: #f2ebff; 
+    --sn-hue-purple200: #d1befe; 
+    --sn-hue-purple300: #b49cfc; 
+    --sn-hue-purple400: #8d7ffa; 
+    --sn-hue-purple500: #625afa; 
+    --sn-hue-purple600: #513dd9; 
+    --sn-hue-purple700: #3f32a1; 
+    --sn-hue-purple800: #302476; 
+    --sn-hue-purple900: #14134e; 
+    --sn-color-neutral0: var(--sn-hue-gray0); 
+    --sn-color-neutral50: var(--sn-hue-gray50); 
+    --sn-color-neutral200: var(--sn-hue-gray200); 
+    --sn-color-neutral300: var(--sn-hue-gray300); 
+    --sn-color-neutral400: var(--sn-hue-gray400); 
+    --sn-color-neutral500: var(--sn-hue-gray500); 
+    --sn-color-neutral600: var(--sn-hue-gray600); 
+    --sn-color-neutral700: var(--sn-hue-gray700); 
+    --sn-color-brand400: var(--sn-hue-purple400); 
+    --sn-color-brand500: var(--sn-hue-purple500); 
+    --sn-color-info400: var(--sn-hue-blue400); 
+    --sn-color-info500: var(--sn-hue-blue500); 
+    --sn-color-success400: var(--sn-hue-green400); 
+    --sn-color-success500: var(--sn-hue-green500); 
+    --sn-color-attention400: var(--sn-hue-orange400); 
+    --sn-color-attention500: var(--sn-hue-orange500); 
+    --sn-color-critical400: var(--sn-hue-red400); 
+    --sn-color-critical500: var(--sn-hue-red500); 
+    --sn-iconColor-primary: var(--sn-color-neutral600); 
+    --sn-textColor-primary: var(--sn-color-neutral700); 
+    --sn-space-1: 1px; 
+    --sn-space-25: 2px; 
+    --sn-space-50: 4px; 
+    --sn-space-75: 6px; 
+    --sn-space-100: 8px; 
+    --sn-space-150: 12px; 
+    --sn-space-200: 16px; 
+    --sn-space-250: 20px; 
+    --sn-space-300: 24px; 
+    --sn-space-350: 28px; 
+    --sn-space-400: 32px; 
+    --sn-space-500: 40px; 
+    --sn-space-600: 48px; 
+    --sn-typeface-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; 
+} 
+
+#​#​#​#​#​ .sn-1c675j7 { 
+    font-family: var(--sn-typeface-ui); 
+    color: var(--sn-textColor-primary); 
+    fill: var(--sn-iconColor-primary);
+} 
+
+#root { 
+    height: 100%; 
+    background: var(--sail-color-white);
+} 
+
+body { 
+    margin:   0; 
+    color:    var(--sail-color-text); 
+    font-weight:    400; 
+    font-size:    14px; 
+    font-family:    var(--sail-font-family);
+    -webkit-font-smoothing:   antialiased; 
+    -moz-osx-font-smoothing:   grayscale;
+    padding:  0; 
+    height:  100%; 
+    background: var(--sail-color-white);
+} 
+
+html { 
+    font-family:    var(--sail-font-family);
+    -ms-text-size-adjust:    100%; 
+    -webkit-text-size-adjust:    100%;
+    color:   var(--sail-color-text); 
+    font-weight:   400; 
+    font-size:   14px; 
+    -webkit-font-smoothing:  antialiased; 
+    -moz-osx-font-smoothing:  grayscale;
+    height: 100%; 
+    background: var(--sail-color-white);
+} 
+
+:root { 
+    --api-explorer-focus-border-color:                #635bff; 
+    --api-explorer-transition-timing:                200ms ease-in-out; 
+    --sail-color-black-rgb:               0,0,0; 
+    --sail-color-white-rgb:               255,255,255; 
+    --sail-color-gray-50-rgb:               247,250,252; 
+    --sail-color-gray-100-rgb:               227,232,238; 
+    --sail-color-gray-200-rgb:               193,201,210; 
+    --sail-color-gray-300-rgb:               163,172,185; 
+    --sail-color-gray-400-rgb:               135,146,162; 
+    --sail-color-gray-500-rgb:               105,115,134; 
+    --sail-color-gray-600-rgb:               79,86,107; 
+    --sail-color-gray-700-rgb:               60,66,87; 
+    --sail-color-gray-800-rgb:               42,47,69; 
+    --sail-color-gray-900-rgb:               26,31,54; 
+    --sail-color-blue-50-rgb:               245,251,255; 
+    --sail-color-blue-100-rgb:               214,236,255; 
+    --sail-color-blue-200-rgb:               164,205,254; 
+    --sail-color-blue-300-rgb:               125,171,248; 
+    --sail-color-blue-400-rgb:               108,142,239; 
+    --sail-color-blue-500-rgb:               84,105,212; 
+    --sail-color-blue-600-rgb:               61,78,172; 
+    --sail-color-blue-700-rgb:               47,61,137; 
+    --sail-color-blue-800-rgb:               33,45,99; 
+    --sail-color-blue-900-rgb:               19,31,65; 
+    --sail-color-cyan-50-rgb:               237,253,253; 
+    --sail-color-cyan-100-rgb:               196,241,249; 
+    --sail-color-cyan-200-rgb:               127,211,237; 
+    --sail-color-cyan-300-rgb:               77,183,232; 
+    --sail-color-cyan-400-rgb:               58,151,212; 
+    --sail-color-cyan-500-rgb:               6,122,184; 
+    --sail-color-cyan-600-rgb:               7,89,150; 
+    --sail-color-cyan-700-rgb:               6,69,122; 
+    --sail-color-cyan-800-rgb:               9,51,83; 
+    --sail-color-cyan-900-rgb:               4,34,53; 
+    --sail-color-green-50-rgb:               239,255,237; 
+    --sail-color-green-100-rgb:               203,244,201; 
+    --sail-color-green-200-rgb:               133,217,150; 
+    --sail-color-green-300-rgb:               51,194,127; 
+    --sail-color-green-400-rgb:               30,166,114; 
+    --sail-color-green-500-rgb:               9,130,93; 
+    --sail-color-green-600-rgb:               14,98,69; 
+    --sail-color-green-700-rgb:               13,75,59; 
+    --sail-color-green-800-rgb:               11,55,51; 
+    --sail-color-green-900-rgb:               8,36,41; 
+    --sail-color-yellow-50-rgb:               252,249,233; 
+    --sail-color-yellow-100-rgb:               248,229,185; 
+    --sail-color-yellow-200-rgb:               239,192,120; 
+    --sail-color-yellow-300-rgb:               229,153,62; 
+    --sail-color-yellow-400-rgb:               217,121,23; 
+    --sail-color-yellow-500-rgb:               187,85,4; 
+    --sail-color-yellow-600-rgb:               152,55,5; 
+    --sail-color-yellow-700-rgb:               118,43,11; 
+    --sail-color-yellow-800-rgb:               87,31,13; 
+    --sail-color-yellow-900-rgb:               58,22,7; 
+    --sail-color-orange-50-rgb:               255,250,238; 
+    --sail-color-orange-100-rgb:               254,227,192; 
+    --sail-color-orange-200-rgb:               248,184,134; 
+    --sail-color-orange-300-rgb:               245,146,94; 
+    --sail-color-orange-400-rgb:               229,111,74; 
+    --sail-color-orange-500-rgb:               196,76,52; 
+    --sail-color-orange-600-rgb:               158,47,40; 
+    --sail-color-orange-700-rgb:               126,30,35; 
+    --sail-color-orange-800-rgb:               93,22,27; 
+    --sail-color-orange-900-rgb:               66,14,17; 
+    --sail-color-red-50-rgb:               255,248,245; 
+    --sail-color-red-100-rgb:               253,226,221; 
+    --sail-color-red-200-rgb:               251,181,178; 
+    --sail-color-red-300-rgb:               250,131,137; 
+    --sail-color-red-400-rgb:               237,95,116; 
+    --sail-color-red-500-rgb:               205,61,100; 
+    --sail-color-red-600-rgb:               164,28,78; 
+    --sail-color-red-700-rgb:               128,20,63; 
+    --sail-color-red-800-rgb:               94,16,57; 
+    --sail-color-red-900-rgb:               66,8,40; 
+    --sail-color-purple-50-rgb:               255,248,254; 
+    --sail-color-purple-100-rgb:               252,224,246; 
+    --sail-color-purple-200-rgb:               240,180,228; 
+    --sail-color-purple-300-rgb:               226,141,220; 
+    --sail-color-purple-400-rgb:               201,110,208; 
+    --sail-color-purple-500-rgb:               164,80,181; 
+    --sail-color-purple-600-rgb:               123,57,151; 
+    --sail-color-purple-700-rgb:               91,43,128; 
+    --sail-color-purple-800-rgb:               64,29,106; 
+    --sail-color-purple-900-rgb:               45,15,85; 
+    --sail-color-violet-50-rgb:               248,249,254; 
+    --sail-color-violet-100-rgb:               230,230,252; 
+    --sail-color-violet-200-rgb:               199,194,234; 
+    --sail-color-violet-300-rgb:               176,161,225; 
+    --sail-color-violet-400-rgb:               156,130,219; 
+    --sail-color-violet-500-rgb:               130,96,195; 
+    --sail-color-violet-600-rgb:               97,70,155; 
+    --sail-color-violet-700-rgb:               75,52,128; 
+    --sail-color-violet-800-rgb:               53,36,101; 
+    --sail-color-violet-900-rgb:               31,24,78; 
+    --sail-color-black:               rgb(var(--sail-color-black-rgb)); 
+    --sail-color-white:               rgb(var(--sail-color-white-rgb)); 
+    --sail-color-gray-50:               rgb(var(--sail-color-gray-50-rgb)); 
+    --sail-color-gray-100:               rgb(var(--sail-color-gray-100-rgb)); 
+    --sail-color-gray-200:               rgb(var(--sail-color-gray-200-rgb)); 
+    --sail-color-gray-300:               rgb(var(--sail-color-gray-300-rgb)); 
+    --sail-color-gray-500:               rgb(var(--sail-color-gray-500-rgb)); 
+    --sail-color-gray-600:               rgb(var(--sail-color-gray-600-rgb)); 
+    --sail-color-gray-700:               rgb(var(--sail-color-gray-700-rgb)); 
+    --sail-color-gray-900:               rgb(var(--sail-color-gray-900-rgb)); 
+    --sail-color-blue-500:               rgb(var(--sail-color-blue-500-rgb)); 
+    --sail-color-blue-800:               rgb(var(--sail-color-blue-800-rgb)); 
+    --sail-color-cyan-500:               rgb(var(--sail-color-cyan-500-rgb)); 
+    --sail-color-green-500:               rgb(var(--sail-color-green-500-rgb)); 
+    --sail-color-yellow-500:               rgb(var(--sail-color-yellow-500-rgb)); 
+    --sail-color-orange-500:               rgb(var(--sail-color-orange-500-rgb)); 
+    --sail-color-red-500:               rgb(var(--sail-color-red-500-rgb)); 
+    --sail-color-purple-500:               rgb(var(--sail-color-purple-500-rgb)); 
+    --sail-color-violet-500:               rgb(var(--sail-color-violet-500-rgb)); 
+    --sail-color-line-divider:               var(--sail-color-gray-100); 
+    --sail-color-line-divider-dark:               var(--sail-color-gray-600); 
+    --sail-color-line-keyline:               var(--sail-color-line-divider); 
+    --sail-color-shadow-key:               rgba(var(--sail-color-black-rgb), var(--sail-opacity-shadow-key)); 
+    --sail-color-shadow-ambient:               rgba(var(--sail-color-gray-700-rgb), var(--sail-opacity-shadow-ambient)); 
+    --sail-color-shadow-focus:               rgba(var(--sail-color-cyan-400-rgb), var(--sail-opacity-shadow-focus)); 
+    --sail-color-shadow-focus-keyline:               rgba(var(--sail-color-cyan-600-rgb), var(--sail-opacity-shadow-focus-keyline)); 
+    --sail-color-text:               var(--sail-color-gray-700); 
+    --sail-color-text-blue:               var(--sail-color-blue-500); 
+    --sail-color-text-red:               var(--sail-color-red-500); 
+    --sail-color-text-hover:               var(--sail-color-gray-900); 
+    --sail-duration-80:              80ms; 
+    --sail-duration-120:              120ms; 
+    --sail-duration-160:              160ms; 
+    --sail-duration-240:              240ms; 
+    --sail-duration-320:              320ms; 
+    --sail-duration-400:              400ms; 
+    --sail-font-system:      -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+    --sail-font-monospace:      "Menlo", "Consolas"; 
+    --sail-font-ja-JP:      "Hiragino Sans", "Yu Gothic UI", "Meiryo UI", "Hiragino Kaku Gothic ProN"; 
+    --sail-font-zh-Hans:      "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
+    --sail-font-family:      var(--sail-font-system), sans-serif; 
+    --sail-font-size-14:      14px; 
+    --sail-font-size-16:      16px; 
+    --sail-font-lineHeight-20:      20px; 
+    --sail-font-lineHeight-24:      24px; 
+    --sail-font-weight-medium:      500; 
+    --sail-opacity-8:           0.08; 
+    --sail-opacity-12:           0.12; 
+    --sail-opacity-24:           0.24; 
+    --sail-opacity-28:           0.28; 
+    --sail-opacity-36:           0.36; 
+    --sail-opacity-shadow-key:           var(--sail-opacity-12); 
+    --sail-opacity-shadow-ambient:           var(--sail-opacity-8); 
+    --sail-opacity-shadow-focus:           var(--sail-opacity-28); 
+    --sail-opacity-shadow-focus-keyline:           var(--sail-opacity-36); 
+    --sail-radius-4:          4px; 
+    --sail-shadow-focus:     0 0 0 4px var(--sail-color-shadow-focus); 
+    --sail-shadow-focus-keyline:     0 0 1px 1px var(--sail-color-shadow-focus-keyline); 
+    --sail-spacing-12:        12px; 
+    --sail-spacing-16:        16px; 
+    --sail-spacing-32:        32px; 
+    --sail-spacing-48:        48px; 
+    "Ubuntu"; :    
+    "Microsoft JhengHei"; :    
+    monospace; :    
+    0 1px 1px 0 var(--sail-color-shadow-key); :   
+    0 3px 6px 0 var(--sail-color-shadow-key); :   
+    0 5px 15px 0 var(--sail-color-shadow-key); :   
+    0 15px 35px 0 var(--sail-color-shadow-ambient), 0 5px 15px 0 var(--sail-color-shadow-key); :   
+    counter-reset:  --section-number-counter;
+    --content-max-width: 1175px; 
+    --article-min-width: 200px; 
+    --sidebar-width: 250px; 
+    --fixed-header-height: 64px; 
+    --collapsable-header-height: 48px; 
+} 
+
+@media (min-width: 1400px){ 
+  :root { 
+    --sidebar-width: 280px;
+  } 
+}     
+
+.Margin-bottom--32 { 
+    margin-bottom: var(--sail-spacing-32);
+} 
+
+.Margin-vertical--16 { 
+    margin-top: var(--sail-spacing-16); 
+    margin-bottom: var(--sail-spacing-16);
+} 
+
+.Margin-horizontal--32 { 
+    margin-right: var(--sail-spacing-32); 
+    margin-left: var(--sail-spacing-32);
+} 
+
+.Padding-all--12 { 
+    padding: var(--sail-spacing-12);
+} 
+
+.Icon-color--gray700 { 
+    color: var(--sail-color-gray-700);
+} 
+
+.Text-color--gray700 { 
+    color: var(--sail-color-gray-700);
+} 
+
+.Text-display--inline { 
+    display: inline;
+} 
+
+.Text-fontSize--16 { 
+    font-size: var(--sail-font-size-16);
+} 
+
+.Text-fontWeight--medium { 
+    font-weight: var(--sail-font-weight-medium);
+} 
+
+.Text-lineHeight--24 { 
+    line-height: var(--sail-font-lineHeight-24);
+} 
+
+.Text-numericSpacing--proportional { 
+    font-feature-settings: "pnum"; 
+    font-variant: proportional-nums;
+} 
+
+.Text-typeface--base { 
+    font-family: var(--sail-font-family);
+} 
+
+.Text-wrap--wrap { 
+    white-space: normal;
+} 
+
+button { 
+    color:     inherit; 
+    font:     inherit; 
+    margin:     0;
+    overflow:    visible;
+    text-transform:   none;
+    -webkit-appearance:  button; 
+    cursor:  pointer;
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+} 
+
+.UnstyledLink { 
+    margin: 0; 
+    padding: 0; 
+    color: inherit; 
+    font-weight: inherit; 
+    font-size: inherit; 
+    font-family: inherit; 
+    font-style: inherit; 
+    text-align: inherit; 
+    text-decoration: none; 
+    background-color: transparent; 
+    border: 0; 
+    outline: none; 
+    cursor: pointer;
+} 
+
+.UnstyledLink:hover { 
+    color: inherit;
+} 
+
+svg:not(:root) { 
+    overflow: hidden;
+} 
+
+.Icon-color svg  { 
+    fill: currentColor;
+} 
+
+.Flex-alignItems--baseline { 
+    align-items: baseline;
+} 
+
+.TextAligner:before { 
+    content: "​";
+} 
+
+.Flex-justifyContent--flexStart { 
+    justify-content: flex-start;
+} 
+
+.Text-color--blue { 
+    color: var(--sail-color-text-blue);
+} 
+
+.Text-display--block { 
+    display: block;
+} 
+
+.Text-fontSize--14 { 
+    font-size: var(--sail-font-size-14);
+} 
+
+.Text-lineHeight--20 { 
+    line-height: var(--sail-font-lineHeight-20);
+} 
+
+.Text-wrap--noWrap { 
+    white-space: nowrap;
+} 
+
+.ButtonLink:active .ButtonLink-label ,.ButtonLink:hover .ButtonLink-label  { 
+    color: var(--sail-color-gray-900);
+} 
+
+
+
+</style>
+<div>
+    <div class="Box-root Margin-bottom--32" style="border-radius: 4px; background-color: rgb(255, 255, 255);" align="center">
+        <div class="Box-root Margin-horizontal--32 Margin-vertical--16 Padding-all--12 Flex-flex Flex-alignItems--center" style="min-height: 384px; width: 490px;">
+          <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--column" style="width: 100%;">
+            <div class="Icon Icon-color Icon-color--gray700 Box-root Flex-flex" style="margin-bottom: 12px;">
+              <svg aria-hidden="true" class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--check-svg Icon-color-svg Icon-color--gray700-svg" height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.297 13.213.293 8.255c-.39-.394-.39-1.033 0-1.426s1.024-.394 1.414 0l4.294 4.224 8.288-8.258c.39-.393 1.024-.393 1.414 0s.39 1.033 0 1.426L6.7 13.208a.994.994 0 0 1-1.402.005z" fill-rule="evenodd">
+                </path>
+              </svg>
+            </div>
+            <span class="Text-color--gray700 Text-fontSize--16 Text-fontWeight--medium Text-lineHeight--24 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--inline">
+              Payment succeeded!
+            </span>
+            <a href="{% url 'products:purchased_items' %}">
+                <button class="UnstyledLink ButtonLink Flex-flex" type="button" style="margin: 12px 0px 0px;">
+                    <div class="Box-root Flex-flex Flex-alignItems--baseline Flex-direction--row" style="position: relative;">
+                      <div class="TextAligner Box-root" style="line-height: 20px; font-size: 14px; flex: 0 0 auto;">
+                      </div>
+                      <div class="Box-root Flex-flex Flex-alignItems--baseline Flex-direction--row Flex-justifyContent--flexStart" style="line-height: 0; flex: 1 1 auto;">
+                        <span class="ButtonLink-label Text-color--blue Text-fontSize--14 Text-fontWeight--medium Text-lineHeight--20 Text-numericSpacing--proportional Text-typeface--base Text-wrap--noWrap Text-display--block" style="margin-top: -1px;">
+                          check orders
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+</div>

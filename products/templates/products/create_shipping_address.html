@@ -1,0 +1,107 @@
+{% extends "products/index.html" %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" style="background-color: blue;">submit</button>
+
+</form>
+
+
+{% block content %}
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shipping address</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+          
+            
+            <div class="col-md-8">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+
+                        
+
+                        <form class="checkout" method="POST">
+                            {% csrf_token %}
+
+                            <div id="customer_details" class="col2-set">
+                                <div class="col-2">
+                                    <div class="woocommerce-billing-fields">
+                                        <h3>Create Shipping Address</h3>
+                                        <p id="billing_country_field" class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
+                                            <label class="" for="billing_country">Country <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.nationality}}
+                                        </p>
+                                       
+                                        <div class="clear"></div>
+
+                                        <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
+                                            <label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.apt_suit}}
+                                        </p>
+
+                                        <p id="billing_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required">
+                                            <label class="" for="billing_city">Town / City <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                           
+                                            {{form.city}}
+                                            
+                                        </p>
+
+                                       
+                                        <p id="billing_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode">
+                                            <label class="" for="billing_postcode">Postcode <abbr title="required" class="required">*</abbr>
+                                            </label>
+                                            {{form.zipcode}}
+                                        </p>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                           
+
+                            <div id="order_review" style="position: relative;">
+                               
+
+
+                                <div id="payment">
+                                   
+                                    <label class="inline" for="address">{{form.default}} set as default shipping address </label>
+
+                                    <div class="form-row place-order">
+
+                                        <button type="submit"  id="place_order" class="button alt">Create</button>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>                       
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

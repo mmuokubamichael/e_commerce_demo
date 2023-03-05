@@ -1,0 +1,181 @@
+{% extends "products/index.html" %}
+{% load static %}
+{{product.name}}
+<hr>
+{{product.details}}
+<br>
+quantity {{product.quantity}} {% if product.quantity == 0 %} out of stock {% endif %}
+
+<br>
+{{product.get_no_of_rating}}
+<br>
+<form method="POST" action="{% url 'products:add_to_cart' %}">
+    {% csrf_token %}
+    <input type="hidden" name="item" value={{product.id}}>
+    <button type="submit" style="background-color: yellow;" {% if product.quantity == 0 %}disabled{% endif %}>add to cart</button>
+</form>
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'products/css/rating.css' %}">
+{% endblock %}
+{% block content %}
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shop</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-sm-6" align="center">
+        <div class="product-images">
+            <div class="product-main-img">
+                <img src="{{product.pictures1.url}}" alt="">
+            </div>
+            
+            <div class="product-gallery">
+                {% if product.pictures2 %}<img src="{{product.pictures2.url}}" alt=""> {% endif %}
+                {% if product.pictures3 %}<img src="{{product.pictures3.url}}" alt=""> {% endif %}
+                {% if product.pictures4 %}<img src="{{product.pictures4.url}}" alt=""> {% endif %}
+                {% if product.pictures5 %}<img src="{{product.pictures5.url}}" alt=""> {% endif %}
+                {% if product.pictures6 %}<img src="{{product.pictures6.url}}" alt=""> {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-6">
+        <div class="product-inner">
+            <h2 class="product-name">{{product.name}}</h2>
+            <div class="product-inner-price">
+                <ins>{{product.get_amount}}</ins> {% if product.discount %}<del>{{product.price}}</del>{% endif %}
+            </div>    
+            
+            <form method="POST" action="{% url 'products:add_to_cart' %}" class="cart">
+                {% csrf_token %}
+                <input type="hidden" name="item" value={{product.id}}>
+                <div class="quantity">
+                    {% if product.quantity == 0 %}
+                    <small><del>out of stock</del> </small>
+                    {% else %}
+                    <small>{{product.quantity}} Pieces available</small>
+                    {% endif %}
+                </div>
+                <button class="add_to_cart_button" type="submit" {% if product.quantity == 0 %}disabled{% endif %}>Add to cart</button>
+            </form>   
+            
+            <div class="product-inner-category">
+                <div class="average-rating">
+                    {% for i in ranges %}
+                      {% if i <= average %}
+                        <span class="fa fa-star checked"></span>
+                      {% else %}
+                        <span class="fa fa-star"></span>
+                      {% endif %}
+                    {% endfor %}
+                </div>
+                  <span>{{rating|length}} Reviews</span>
+                  
+            </div> 
+            
+            <div role="tabpanel">
+                <ul class="product-tab" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="home">
+                        <h2>Product Description</h2>  
+              
+
+                        <p>{{product.details}}</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                        <h5><span style="color: orange;">{{ave_round}}/5 </span> {{rating|length}} ratings</h5>
+                        <hr>
+                        {% if rating %}
+                            <div class="submit-review">
+                            
+                                {% for rate in the_ratings %}
+                                    <div class="average-rating">
+                                        {% for i in ranges %}
+                                        {% if i <= rate.rate %}
+                                            <span class="fa fa-star checked"></span>
+                                        {% else %}
+                                            <span class="fa fa-star"></span>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <br>
+                                    <p class="">{{rate.comments}}</p>
+                                    <small>by {{rate.author}}</small>
+                                    <hr>
+                                {% endfor %}
+                                
+                            </div>
+                            {% if the_ratings.has_other_pages %}
+                                <ul class="pagination">
+                                    {% if the_ratings.has_previous %}
+                                    <li><a href="?page={{ the_ratings.previous_page_number }}">&laquo;</a></li>
+                                    {% else %}
+                                    <li class="disabled"><span>&laquo;</span></li>
+                                    {% endif %}
+                                    {% for i in the_ratings.paginator.page_range %}
+                                    {% if the_ratings.number == i %}
+                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                    {% else %}
+                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% if the_ratings.has_next %}
+                                    <li><a href="?page={{ the_ratings.next_page_number }}">&raquo;</a></li>
+                                    {% else %}
+                                    <li class="disabled"><span>&raquo;</span></li>
+                                    {% endif %}
+                                </ul>
+                            {% endif %}
+                                                        
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-8 mx-auto"> 
+        <div class="related-products-wrapper">
+            <h2 class="related-products-title">Related Products</h2>
+            <div class="related-products-carousel">
+                {% for prd in products %}
+                <div class="single-product">
+                    <div class="product-f-image">
+                        <a href="{% url 'products:detail' prd.id%}"><img class="rounded" src="{{prd.pictures1.url}}" style="width:195px;height:243px;" alt=""></a>
+                        
+                    </div>
+                    
+                    <h2><a href="{% url 'products:detail' prd.id%}">{{prd.name}}</a></h2>
+                    
+                    <div class="product-carousel-price">
+                        <ins>{{prd.get_amount}}</ins> {% if prd.discount %}<del>{{prd.price}}</del>{% endif %}
+                    </div> 
+                </div>
+                {% endfor %}
+                                 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+

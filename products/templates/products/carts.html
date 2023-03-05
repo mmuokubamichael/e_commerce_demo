@@ -1,0 +1,24 @@
+carts
+
+{% for message in messages %}
+{{message}}
+{% endfor %}
+
+<form method="POST" action="{% url 'products:my_orders' %}">
+    {% csrf_token %}
+    
+    
+    {% for carts in cart.items.all %}
+    {{carts.product.name}} - {{carts.product.price}} -   <a href="{% url 'products:sub_item' carts.id %}">-</a> quanity({{carts.quantity}}) <a href="{% url 'products:add_item' carts.id %}">+</a> total amount({{carts.get_item_amount}}) {% if carts.product.discount %}- discount amount({{carts.get_item_discount_amount}}){% endif %} <a href="{% url 'products:delete_from_cart' carts.product.id %}">delete item</a>
+    <br>
+    {% endfor %}
+    
+    
+    <hr>
+    
+    Total Amount ------------------------- {{cart.get_total_amount}}
+    
+    
+    <br>
+    <button type="submit" style="background-color: red;" >checkout</button>
+</form>
