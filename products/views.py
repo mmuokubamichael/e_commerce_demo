@@ -49,6 +49,10 @@ def login_user(request):
 
     return render(request,'products/login.html',{"user_form":user_form})
 
+def logout_view(request):
+    logout(request)
+    return redirect('products:home')
+
 def detail(request,product_id):
     product = get_object_or_404(Products, pk=product_id)
     products=Products.objects.all()

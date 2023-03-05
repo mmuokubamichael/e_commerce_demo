@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (home,detail,add_to_cart,cart,my_orders,
 shipping_address,create_shipping_address,update_shipping_address,add_item,sub_item,delete_from_cart,
-checkout,stripe_payment,purchased_items,dispute,order_state_json,rating,create_payment,my_webhook_view,payment_succeded,register_user,login_user)
+checkout,stripe_payment,purchased_items,dispute,order_state_json,rating,create_payment,my_webhook_view,payment_succeded,register_user,login_user,logout_view)
 
 app_name = "products"
 
@@ -29,6 +29,7 @@ urlpatterns = [
     path('stripe/succeded/',payment_succeded,name='payment_succeded'),
     path('register/user/',register_user,name='register_user'),
     path('login/user/',login_user,name='login_user'),
+    path('logout/', logout_view, name='logout'),
 
     
 

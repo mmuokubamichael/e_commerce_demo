@@ -1,3 +1,7 @@
+
+{% extends "products/index.html" %}
+{% load static %}
+
 {% if is_address %}
 {% for addresses in address %}
 {{addresses.nationality.name}} - {{addresses.city}} <a href="{% url 'products:update_shipping_address' addresses.id %}">update shipping address</a>
@@ -9,3 +13,109 @@ no address found create one
 {% endif %}
 <br>
 <a href="{% url 'products:create_shipping_address' %}">Add a shipping address</a>
+
+
+
+
+
+
+
+{% block script %}
+
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shipping Address</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End Page title area -->
+
+
+
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row"> 
+            <div class="col-md-12">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+                        
+                            <table cellspacing="0" class="shop_table cart" id="my_purchased">
+                                <thead>
+                                    <tr>
+                                        
+                                        
+                                        <th class="product-name">nationality</th>
+                                        <th class="product-price">city</th>
+                                        <th class="product-quantity">apt suit</th>
+                                        <th class="product-subtotal">zipcode</th>
+                                        <th class="product-subtotal">default</th>
+                                        <th class="product-subtotal">update Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if is_address %}
+                                  {% for addresses in address %}
+                                    <tr class="cart_item">
+                                       
+                                        <td class="product-name">
+                                            <p>{{addresses.nationality.name}}</p> 
+                                        </td>
+
+                                        <td class="product-name">
+                                            <p>{{addresses.city}}</p> 
+                                        </td>
+
+                                        <td class="product-name">
+                                            <p>{{addresses.apt_suit}}</p> 
+                                        </td>
+
+                                        <td class="product-name">
+                                            <p>{{addresses.zipcode}}</p> 
+                                        </td>
+
+                                        <td class="product-name">
+                                            <p>{% if addresses.default %}yes{% else %}no{% endif %}</p> 
+                                        </td>
+
+                                        <td class="product-name">
+                                            <a href="{% url 'products:update_shipping_address' addresses.id %}"><button class="checkout-button button alt wc-forward">update shipping address</button></a>
+                                        </td>
+                                     
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %} 
+                                    <td class="product-name" colspan="6">
+                                        <p>no address found create one</p>
+                                    </td>
+                                    
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                            <br>
+                            <a href="{% url 'products:create_shipping_address' %}"><button class="checkout-button button alt wc-forward">Add a shipping address</button></a>
+                        
+
+                       
+                    </div>                        
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+   

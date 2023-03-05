@@ -43,18 +43,22 @@
     <![endif]-->
   </head>
   <body>
+    {% url 'products:home' as home %}
+    {% url 'products:purchased_items' as purchased_items %}
    
     <div class="header-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                        <ul>{% if request.user.is_authenticated %}
+                            <li><a href="{% url 'products:logout' %}"><i class="fa fa-user"></i> Logout</a></li>
+                            <li><a href="{% url 'products:shipping_address' %}"><i class="fa fa-heart"></i> My shipping address</a></li>
+                            {% else %}
+                            <li><a href="{% url 'products:login_user' %}"><i class="fa fa-user"></i> Login</a></li>
+                            <li><a href="{% url 'products:register_user' %}"><i class="fa fa-user"></i> Sign up</a></li>
+                            {% endif %}
+                            
                         </ul>
                     </div>
                 </div>
@@ -132,11 +136,8 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        <li class="{% if request.path == home %}active{% endif %}"><a href="{{home}}">Home</a></li>
+                        <li class="{% if request.path == purchased_items %}active{% endif %}"><a href="{{purchased_items}}">My Orders</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
