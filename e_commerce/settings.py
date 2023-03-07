@@ -138,10 +138,9 @@ try:
     }
 except Exception as e:
     pass
-STRIPE_PUBLIC_KEY = "pk_test_51MaGEYHrXLSFdPf9AFHCZi57IbvKPd9SvTIO3gk1AlwjLKsgDtWQYjqIgF4bNmkIaxzFYGM6NDnm7NgXUSRXQrqj006tOeFzr9"
-STRIPE_SECRET_KEY = "sk_test_51MaGEYHrXLSFdPf9MrSn5Xc4DPCvF96LOAciaJzLveQoGyQb2qAEWbFJqJgxi8SXTeDsmhGFVeC9SB4XiQKCIa7i00sBP7k8BW"
-STRIPE_WEBHOOK_SECRET = "whsec_388e2ed89740b0af059396dee992e5d763e6499ae5b4b88c62da352dc99b32ed"
 
 #stripe listen --forward-to localhost:8000/my_webhook/stripe/
 
 LOGIN_URL = "/"
+# npm install --save-dev @babel/core @babel/plugin-proposal-class-properties @babel/preset-react
+#npm install --save-dev axios
